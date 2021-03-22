@@ -1,15 +1,10 @@
 const capAndFilter = (arr) => {
-    let filteredArr = [];
-
-    for (let x = 0; x < arr.length; x++){
-        let ele = arr[x];
-        if (ele.startsWith('F') || ele.startsWith('f')){
-            continue
-        }
-        let [first, ...rest] = ele
-        filteredArr.push(`${first.toUpperCase()}${rest.join('')}`)
-    }
-    return filteredArr
+    return arr
+        .filter(ele => !(ele.startsWith('F') || ele.startsWith('f')))
+        .map(ele => {
+            const [first, ...rest] = ele
+            return `${first.toUpperCase()}${rest.join('')}`
+        })
 }
 
 module.exports = capAndFilter
