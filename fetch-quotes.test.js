@@ -8,7 +8,7 @@ describe('Fetches a single quote from api', () => {
         expect(quote).toEqual(expect.any(Object))
     });
 
-     it('Returns an object with 3 keys', async () => {
+    it('Returns an object containing 3 named keys', async () => {
         const quote = await fetchQuotes();
 
         expect(quote).toMatchObject(expect.objectContaining({
@@ -16,6 +16,12 @@ describe('Fetches a single quote from api', () => {
             "quote": expect.any(String),
             "image": expect.any(String),
         }))
+    });
+
+    it('Returns an object with exactly 3 keys', async () => {
+        const quote = await fetchQuotes();
+
+        expect(Object.keys(quote).length).toEqual(3)
     });
 
 })
