@@ -1,6 +1,7 @@
 const copyAndPush = (arr, n) => {
-    arr.push(n)
-    return arr
+    const shallowCopy = [...arr]
+    shallowCopy.push(n)
+    return shallowCopy
 }
 
 module.exports = copyAndPush;
