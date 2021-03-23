@@ -1,5 +1,5 @@
-const getName = ({name}) => {
-    return name
-}
+const getName = ({ name }) => {
+  return name;
+};
 
-module.exports = getName
+module.exports = getName;

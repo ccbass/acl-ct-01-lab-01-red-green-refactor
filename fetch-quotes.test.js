@@ -1,47 +1,47 @@
-const fetchQuotes = require("./fetch-quotes");
+const fetchQuotes = require('./fetch-quotes');
 
-jest.mock('node-fetch')
-const fetch = require('node-fetch')
+jest.mock('node-fetch');
+const fetch = require('node-fetch');
 const fakedResponse = [{
-    "character":"Dr Zoidberg",
-    "quote":"It's toe-tappingly tragic!",
-    "image":"https://res.cloudinary.com/dzxqhkyqd/image/upload/v1554904014/Dr_John_Zoidberg.png"
-}]
+  'character':'Dr Zoidberg',
+  'quote':'It\'s toe-tappingly tragic!',
+  'image':'https://res.cloudinary.com/dzxqhkyqd/image/upload/v1554904014/Dr_John_Zoidberg.png'
+}];
 
 fetch.mockImplementation(() => {
-    return Promise.resolve( { json: () => Promise.resolve(fakedResponse) } )
-})
+  return Promise.resolve({ json: () => Promise.resolve(fakedResponse) });
+});
 
 describe('Fetches a single quote from api', () => {
-    it('Returns an single quote object', async () => {
-        const quote = await fetchQuotes();
+  it('Returns an single quote object', async() => {
+    const quote = await fetchQuotes();
 
-        expect(quote).toEqual(expect.any(Object))
-    });
+    expect(quote).toEqual(expect.any(Object));
+  });
 
-    it('Returns an object containing the proper 3 named keys', async () => {
-        const quote = await fetchQuotes();
+  it('Returns an object containing the proper 3 named keys', async() => {
+    const quote = await fetchQuotes();
 
-        expect(quote).toMatchObject(expect.objectContaining({
-           "character": expect.any(String),
-            "quote": expect.any(String),
-            "image": expect.any(String),
-        }))
-    });
+    expect(quote).toMatchObject(expect.objectContaining({
+      'character': expect.any(String),
+      'quote': expect.any(String),
+      'image': expect.any(String),
+    }));
+  });
 
-    it('Returns an object with exactly 3 keys', async () => {
-        const quote = await fetchQuotes();
+  it('Returns an object with exactly 3 keys', async() => {
+    const quote = await fetchQuotes();
 
-        expect(Object.keys(quote).length).toEqual(3)
-    });
+    expect(Object.keys(quote).length).toEqual(3);
+  });
 
 
-    it('Fetches object correctly from API', async () => {
-        const quote = await fetchQuotes();
+  it('Fetches object correctly from API', async() => {
+    const quote = await fetchQuotes();
 
-        expect(quote).toEqual(fakedResponse[0])
-    });
+    expect(quote).toEqual(fakedResponse[0]);
+  });
 
-})
+});
 
 
