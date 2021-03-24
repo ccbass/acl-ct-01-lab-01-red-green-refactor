@@ -1,7 +1,6 @@
 {
   "name": "rg-refactor",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --runInBand --testLocationInResults",
@@ -26,5 +25,14 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccbass/acl-ct-01-lab-01-red-green-refactor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ccbass/acl-ct-01-lab-01-red-green-refactor/issues"
+  },
+  "homepage": "https://github.com/ccbass/acl-ct-01-lab-01-red-green-refactor#readme",
+  "description": ""
 }

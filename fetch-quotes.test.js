@@ -22,19 +22,20 @@ describe('Fetches a single quote from api', () => {
   it('Returns an object containing the proper 3 named keys', async() => {
     const quote = await fetchQuotes();
 
-    expect(quote).toMatchObject(expect.objectContaining({
+    expect(quote).toMatchObject({
       'character': expect.any(String),
       'quote': expect.any(String),
       'image': expect.any(String),
-    }));
+    });
   });
+
+  // Can use toEqual here to avoid calling both match object above and object length below.
 
   it('Returns an object with exactly 3 keys', async() => {
     const quote = await fetchQuotes();
 
-    expect(Object.keys(quote).length).toEqual(3);
+    expect(Object.keys(quote)).toHaveLength(3);
   });
-
 
   it('Fetches object correctly from API', async() => {
     const quote = await fetchQuotes();
